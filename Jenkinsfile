@@ -5,7 +5,7 @@ pipeline {
         GOPATH = "${WORKSPACE}"
         GOOS = "windows"
         GOARCH = "amd64"
-        PATH = "/usr/local/go1.20.4/bin:$PATH"  // Assuming the go 1.20.4 binary is installed here
+        
     }
 
     stages {
