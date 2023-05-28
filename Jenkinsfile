@@ -1,12 +1,6 @@
 pipeline {
     agent any
-    environment {
-        // Set up the GOPATH
-        GOPATH = "${WORKSPACE}"
-        GOOS = "windows"
-        GOARCH = "amd64"
-        
-    }
+ 
 
     stages {
         stage('Checkout') {
