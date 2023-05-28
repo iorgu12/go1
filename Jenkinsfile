@@ -19,6 +19,11 @@ pipeline {
                 bat 'go build -o prog.exe prog.go'
             }
         }
+        stage('Unit Test') {
+            steps {
+                bat 'go test ./...'
+            }
+        }
 
         stage('Run') {
             steps {
