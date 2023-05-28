@@ -1,23 +1,30 @@
 pipeline {
     agent any
-    environment {
+     environment {
         // Set up the GOPATH
         GOPATH = "${WORKSPACE}"
         GOOS = "windows"
         GOARCH = "amd64"
     }
+
     stages {
         stage('Checkout') {
             steps {
-                // Fetch source code from your repository
                 git 'https://github.com/iorgu12/go.git'
             }
         }
+
         stage('Build') {
             steps {
-                // Build the source code to produce a binary artifact
-               bat 'go build -o prog.exe prog.go'
+                bat 'go build -o prog.exe prog.go'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                bat '.\\prog.exe'
             }
         }
     }
 }
+
