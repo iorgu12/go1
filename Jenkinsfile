@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    environment {
+        // Set up the GOPATH
+        GOPATH = "${WORKSPACE}"
+        GOOS = "windows"
+        GOARCH = "amd64"
+    }
     tools {
         // Make sure 'go-1.20.4' is installed on Jenkins
         go 'go-1.20.4'
