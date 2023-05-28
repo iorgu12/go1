@@ -10,7 +10,7 @@ type Person struct {
 }
 
 func main() {
-	p := Person{Name: "Your Name"}
+	p := Person{Name: "Iorgu"}
 	b, _ := json.Marshal(p)
 	fmt.Println(string(b))
 }
