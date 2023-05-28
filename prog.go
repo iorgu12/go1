@@ -1,16 +1,22 @@
 package main
-
 import (
-	"encoding/json"
-	"fmt"
+"encoding/json"
+"fmt"
+"log"
+"net/http"
 )
-
-type Person struct {
-	Name string `json:"name"`
+type Simple struct {
+Name string
+Description string
+Url string
 }
-
+func handler(w http.ResponseWriter, r *http.Request) {
+simple := Simple{"Hello", "Iorgu",r.Host}
+jsonOutput, _ := json.Marshal(simple)
+fmt.Fprintln(w, string(jsonOutput))
+}
 func main() {
-	p := Person{Name: "Iorgu"}
-	b, _ := json.Marshal(p)
-	fmt.Println(string(b))
+fmt.Println("Server started on port 4444")
+http.HandleFunc("/api", handler)
+log.Fatal(http.ListenAndServe(":4444", nil))
 }
