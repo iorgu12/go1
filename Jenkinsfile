@@ -15,11 +15,7 @@ pipeline {
             }
         }
 
-        stage('Initialize Go module') {
-            steps {
-                bat 'go mod init github.com/iorgu12/go'  // Replace with your actual github username and repository name
-            }
-        }
+        
 
         stage('Unit Test') {
             steps {
