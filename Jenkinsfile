@@ -16,7 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Build the source code to produce a binary artifact
-                bat 'go build -o prog.go'
+               bat 'go build -o prog.exe prog.go'
             }
         }
     }
