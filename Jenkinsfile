@@ -13,17 +13,18 @@ pipeline {
                 git 'https://github.com/iorgu12/go.git'
             }
         }
+        stage('Unit Test') {
+            steps {
+                bat 'go test ./...'
+            }
+        }
 
         stage('Build') {
             steps {
                 bat 'go build -o prog.exe prog.go'
             }
         }
-        stage('Unit Test') {
-            steps {
-                bat 'go test ./...'
-            }
-        }
+        
 
         stage('Run') {
             steps {
