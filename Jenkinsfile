@@ -34,12 +34,12 @@ stage('Test') {
           script {
             // Copy the binary to the target VM
             sshagent(['your-ssh-credential-id']) {
-              sh "ssh -o StrictHostKeyChecking=no -i $SSH_KEY username@iorgu 'mkdir -p /path/to/destination && scp -i $SSH_KEY C:\ProgramData\Jenkins\.jenkins\workspace\go>.\prog.exe username@iorgu-vm:/path/to/destination'"
+              sh "ssh -o StrictHostKeyChecking=no -i $SSH_KEY username@iorgu 'mkdir -p ~/lab && scp -i $SSH_KEY C:\ProgramData\Jenkins\.jenkins\workspace\go>.\prog.exe username@iorgu-vm:~/lab'"
             }
             
             // Start the program on the target VM
             sshagent(['your-ssh-credential-id']) {
-              sh "ssh -o StrictHostKeyChecking=no -i $SSH_KEY username@iorgu 'nohup /path/to/destination/binary > /dev/null 2>&1 &'"
+              sh "ssh -o StrictHostKeyChecking=no -i $SSH_KEY username@iorgu 'nohup ~/lab/prog.exe > /dev/null 2>&1 &'"
    
             }
           }
