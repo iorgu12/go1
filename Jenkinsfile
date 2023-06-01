@@ -28,22 +28,5 @@ stage('Test') {
             }
         }
     }
-    stage('Deploy') {
-      steps {
-        withCredentials([sshUserPrivateKey(credentialsId: 'your-ssh-credential-id', keyFileVariable: 'SSH_KEY')]) {
-          script {
-            // Copy the binary to the target VM
-            sshagent(['your-ssh-credential-id']) {
-              sh "ssh -o StrictHostKeyChecking=no -i $SSH_KEY username@iorgu 'mkdir -p ~/lab && scp -i $SSH_KEY C:\ProgramData\Jenkins\.jenkins\workspace\go\prog.exe username@iorgu-vm:~/lab'"
-            }
-            
-            // Start the program on the target VM
-            sshagent(['your-ssh-credential-id']) {
-              sh "ssh -o StrictHostKeyChecking=no -i $SSH_KEY username@iorgu 'nohup ~/lab/prog.exe > /dev/null 2>&1 &'"
-   
-            }
-          }
-        }
-      }
-    }
+}
 }
