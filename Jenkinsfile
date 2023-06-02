@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 sh '''
-                  scp -o StrictHostKeyChecking=no -i SSH_KEY prog.exe user@192.168.81.129:/home/iorgu/lab
+                  scp -o StrictHostKeyChecking=no -i SSH_KEY C:\ProgramData\Jenkins\.jenkins\workspace\go@2\prog.exe user@192.168.81.129:/home/iorgu/lab
                   ssh -o StrictHostKeyChecking=no -i SSH_KEY user@192.168.81.129 "chmod +x /home/iorgu/lab/prog.exe && /home/iorgu/lab/prog.exe"
                 '''
             }
