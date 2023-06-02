@@ -8,9 +8,6 @@ pipeline {
                 git 'https://github.com/iorgu12/go.git'
             }
         }
-        tools {
-            go 'go-1.20.4'
-        }
         
         stage('Test') {
             steps {
