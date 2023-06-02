@@ -22,11 +22,6 @@ stage('Test') {
             }
         }
 
-        stage('Run') {
-            steps {
-                bat '.\\prog.exe'
-            }
-        }
          stage('Deploy') {
             steps {
                 echo 'Deploying....'
