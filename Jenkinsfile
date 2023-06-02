@@ -10,7 +10,7 @@ pipeline {
         }
 
         
-stage('Test') {
+        stage('Test') {
             steps {
                 bat 'go test'
             }
