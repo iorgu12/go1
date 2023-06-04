@@ -32,6 +32,7 @@ pipeline {
                     echo 'Deploying....'
                     sshPut remote: remote, from: 'prog.sh', into: '/home/coco/lab'
                     sshCommand remote: remote, command:"chmod +x /home/coco/lab/prog.sh"
+                    sshCommand remote: remote, command:"systemctl start gop.service"
                     
            
                 }
