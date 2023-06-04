@@ -30,9 +30,9 @@ pipeline {
                     remote.password = 'loco12'  
                     remote.allowAnyHosts = true   
                     echo 'Deploying....'
-                    sshPut remote: remote, from: 'prog.exe', into: '/home/iorgu/lab'
+                    sshPut remote: remote, from: 'prog.exe', into: '/home/coco/lab'
                     sshScript remote: remote, script: """
-                        chmod +x /home/iorgu/lab/prog.exe
+                        chmod +x /home/coco/lab/prog.exe
                         /home/iorgu/lab/prog.exe
                     """
                 }
