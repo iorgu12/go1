@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'go build -o prog.exe prog.go'
+                bat 'go build -o prog.sh prog.go'
             }
         }
 
