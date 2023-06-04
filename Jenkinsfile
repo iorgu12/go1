@@ -32,7 +32,7 @@ pipeline {
                     echo 'Deploying....'
                     sshPut remote: remote, from: 'prog.exe', into: '/home/coco/lab'
                     sshCommand remote: remote, command:"chmod +x /home/coco/lab/prog.exe"
-                    sshCommand remote: remote, command: "/home/coco/lab/prog.exe"
+                    sshCommand remote: remote, command: "wine prog.exe"
            
                 }
             }
