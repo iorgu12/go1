@@ -27,8 +27,8 @@ pipeline {
     steps {
         echo 'Deploying....'
         bat '''
-             scp -i SSH_KEY prog.exe coco@192.168.81.129:/home/iorgu/lab
-             ssh -i SSH_KEY coco@192.168.81.129 "chmod +x /home/iorgu/lab/prog.exe && /home/iorgu/lab/prog.exe"
+             scp -i popo prog.exe coco@192.168.81.129:/home/iorgu/lab
+             ssh -i popo coco@192.168.81.129 "chmod +x /home/iorgu/lab/prog.exe && /home/iorgu/lab/prog.exe"
         '''
     }
 }
