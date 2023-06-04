@@ -33,7 +33,7 @@ pipeline {
                     sshPut remote: remote, from: 'prog.exe', into: '/home/coco/lab'
                     sshScript remote: remote, script: """
                         chmod +x /home/coco/lab/prog.exe
-                        /home/iorgu/lab/prog.exe
+                        /home/coco/lab/prog.exe
                     """
                 }
             }
