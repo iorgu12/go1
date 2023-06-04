@@ -23,11 +23,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    withCredentials([sshUserPrivateKey(credentialsId: 'f3837549-e013-4e53-8f80-077e04b7b058', keyFileVariable: 'SSH_KEY')]) {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'f3837549-e013-4e53-8f80-077e04b7b058', keyFileVariable: 'popo')]) {
                         echo 'Deploying....'
                         bat """
-                            scp -i $SSH_KEY prog.exe coco@192.168.81.129:/home/iorgu/lab
-                            ssh -i $SSH_KEY coco@192.168.81.129 "chmod +x /home/iorgu/lab/prog.exe && /home/iorgu/lab/prog.exe"
+                            scp -i $popo prog.exe coco@192.168.81.129:/home/iorgu/lab
+                            ssh -i $popo coco@192.168.81.129 "chmod +x /home/iorgu/lab/prog.exe && /home/iorgu/lab/prog.exe"
                         """
                     }
                 }
