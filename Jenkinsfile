@@ -23,13 +23,18 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    withCredentials([sshUserPrivateKey(credentialsId: 'f3837549-e013-4e53-8f80-077e04b7b058', keyFileVariable: 'popo')]) {
-                        echo 'Deploying....'
-                        bat """
-                            scp -i $popo prog.exe coco@192.168.81.129:/home/iorgu/lab
-                            ssh -i $popo coco@192.168.81.129 "chmod +x /home/iorgu/lab/prog.exe && /home/iorgu/lab/prog.exe"
-                        """
-                    }
+                    def remote = [:]
+                    remote.name = 'my-ssh-server'
+                    remote.host = '192.168.81.129'
+                    remote.user = 'coco'
+                    remote.password = 'loco12'  
+                    remote.allowAnyHosts = true   
+                    echo 'Deploying....'
+                    sshPut remote: remote, from: 'prog.exe', into: '/home/iorgu/lab'
+                    sshScript remote: remote, script: """
+                        chmod +x /home/iorgu/lab/prog.exe
+                        /home/iorgu/lab/prog.exe
+                    """
                 }
             }
         }
