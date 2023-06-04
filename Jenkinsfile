@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/iorgu12/go.git'
+                git 'https://github.com/iorgu12/go1.git'
             }
         }
         
