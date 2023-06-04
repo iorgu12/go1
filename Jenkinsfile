@@ -31,10 +31,9 @@ pipeline {
                     remote.allowAnyHosts = true   
                     echo 'Deploying....'
                     sshPut remote: remote, from: 'prog.exe', into: '/home/coco/lab'
-                    sshScript remote: remote, script: """
-                        chmod +x /home/coco/lab/prog.exe
-                        /home/coco/lab/prog.exe
-                    """
+                    sshCommand remote: remote, command:"chmod +x /home/coco/lab/prog.exe"
+                    sshCommand remote: remote, command: "/home/coco/lab/prog.exe"
+           
                 }
             }
         }
