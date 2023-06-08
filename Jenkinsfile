@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh go build -o prog.sh prog.go
+                sh 'go build -o prog.sh prog.go'
             }
         }
 
