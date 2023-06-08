@@ -8,7 +8,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git 'https://github.com/iorgu12/go1.git'
-                sh'go mod init'
+                
             }
         }
         
