@@ -23,7 +23,7 @@ pipeline {
             steps {
                 sh'chmod 400 popo'
                 sh'scp -i popo prog.sh loco2@192.168.81.130:/home/loco2' 
-                sh'ssh loco2@192.168.81.130 -i popo -C systemctl start iorgu.service '
+                sh'ssh loco2@192.168.81.130 -i popo -C ./home/loco2/prog.sh '
                 sh'ssh loco2@192.168.81.130 -i popo -C curl http://localhost:4444/api  '
                 
                     
