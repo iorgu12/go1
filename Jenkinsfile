@@ -21,7 +21,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh'scp -i /home/loco3/key .prog.sh loco2@192.168.81.130:/home/loco2' 
+                sh'scp -i popo .prog.sh loco2@192.168.81.130:/home/loco2' 
                 
                     
            
