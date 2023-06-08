@@ -10,32 +10,23 @@ pipeline {
         
         stage('Test') {
             steps {
-                bat 'go test'
+                sh 'go test'
             }
         }
 
         stage('Build') {
             steps {
-                bat 'go build -o prog.sh prog.go'
+                sh go build -o prog.sh prog.go
             }
         }
 
         stage('Deploy') {
             steps {
-                script {
-                    def remote = [:]
-                    remote.name = 'my-ssh-server'
-                    remote.host = '192.168.81.129'
-                    remote.user = 'coco'
-                    remote.password = 'loco12'  
-                    remote.allowAnyHosts = true   
-                    echo 'Deploying....'
-                    sshPut remote: remote, from: 'prog.sh', into: '/home/coco/lab'
-                    sshCommand remote: remote, command:"chmod +x /home/coco/lab/prog.sh"
-                    sshCommand remote: remote, command:"systemctl start gop.service"
+                sh'scp -i key .prog.sh loco2@192.168.81.130:/home/loco2' 
+                
                     
            
-                }
+               
             }
         }
     }
