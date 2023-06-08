@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        go 'go-lang' 
+    }
 
     stages {
         stage('Checkout') {
