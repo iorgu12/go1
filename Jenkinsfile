@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh'chmod 400 popo'
-                sh'scp -i popo .prog.sh loco2@192.168.81.130:/home/loco2' 
+                sh'scp -i popo prog.sh loco2@192.168.81.130:/home/loco2' 
                 
                     
            
